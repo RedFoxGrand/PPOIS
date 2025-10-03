@@ -1,14 +1,14 @@
-# Visual Studio
 *.sln
 *.vcxproj*
 *.user
+*.config
 *.suo
 .vs/
 x64/
 Debug/
 Release/
+packages/
 
-# Общие временные файлы
 *.obj
 *.exe
 *.log
