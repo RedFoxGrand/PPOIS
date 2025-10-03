@@ -1,0 +1,16 @@
+# Visual Studio
+*.sln
+*.vcxproj*
+*.user
+*.suo
+.vs/
+x64/
+Debug/
+Release/
+
+# Общие временные файлы
+*.obj
+*.exe
+*.log
+*.pdb
+*.idb
