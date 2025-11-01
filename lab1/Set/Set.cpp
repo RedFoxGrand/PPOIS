@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 Set::SetElement::SetElement() : type(STRING) {}
 Set::SetElement::SetElement(const string& str) : type(STRING), stringValue(str) {}
@@ -152,7 +153,7 @@ Set::SetElement Set::ParsingElement(const string& str, int& pos) const {
     string token;
     while (pos < (int)str.size() && str[pos] != ',' && str[pos] != '}' && !SpaceCheck(str[pos])) {
         if (str[pos] == '{' && !token.empty()) {
-            throw invalid_argument("Íåîæèäàíííàÿ '{' âíóòðè òîêåíà");
+            throw invalid_argument("ÃÃ¥Ã®Ã¦Ã¨Ã¤Ã Ã­Ã­Ã­Ã Ã¿ '{' Ã¢Ã­Ã³Ã²Ã°Ã¨ Ã²Ã®ÃªÃ¥Ã­Ã ");
         }
         token.push_back(str[pos]);
         pos++;
@@ -160,7 +161,7 @@ Set::SetElement Set::ParsingElement(const string& str, int& pos) const {
 
     for (char ch : token) {
         if (!DigitCheck(ch) && !LetterCheck(ch) && ch != '_') {
-            throw invalid_argument("Íåäîïóñòèìûé ñèìâîë: " + string(1, ch));
+            throw invalid_argument("ÃÃ¥Ã¤Ã®Ã¯Ã³Ã±Ã²Ã¨Ã¬Ã»Ã© Ã±Ã¨Ã¬Ã¢Ã®Ã«: " + string(1, ch));
         }
     }
 
@@ -168,7 +169,7 @@ Set::SetElement Set::ParsingElement(const string& str, int& pos) const {
 }
 
 Set::SetElement Set::ParsingSet(const string& str, int& pos) const {
-    if (str[pos] != '{') throw invalid_argument("Îæèäàëàñü '{'");
+    if (str[pos] != '{') throw invalid_argument("ÃŽÃ¦Ã¨Ã¤Ã Ã«Ã Ã±Ã¼ '{'");
 
     SetElement result;
     result.type = SET;
@@ -201,7 +202,7 @@ void Set::ParseFromString(const string& str) {
         cleanStr.end());
 
     if (cleanStr.empty() || cleanStr.front() != '{' || cleanStr.back() != '}') {
-        throw invalid_argument("Íåäîïóñòèìûé ôîðìàò ìíîæåñòâà");
+        throw invalid_argument("ÃÃ¥Ã¤Ã®Ã¯Ã³Ã±Ã²Ã¨Ã¬Ã»Ã© Ã´Ã®Ã°Ã¬Ã Ã² Ã¬Ã­Ã®Ã¦Ã¥Ã±Ã²Ã¢Ã ");
     }
 
     int pos = 0;

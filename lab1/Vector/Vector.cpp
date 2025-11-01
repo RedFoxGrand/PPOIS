@@ -11,13 +11,13 @@ Vector::Vector(const Vector& other) :
     xBeg(other.xBeg), yBeg(other.yBeg), zBeg(other.zBeg),
     xEnd(other.xEnd), yEnd(other.yEnd), zEnd(other.zEnd) {}
 
-void Vector::SetÑoordinatesBeg(double xBeg, double yBeg, double zBeg) {
+void Vector::SetCoordinatesBeg(double xBeg, double yBeg, double zBeg) {
     this->xBeg = xBeg;
     this->yBeg = yBeg;
     this->zBeg = zBeg;
 }
 
-void Vector::SetÑoordinatesEnd(double xEnd, double yEnd, double zEnd) {
+void Vector::SetCoordinatesEnd(double xEnd, double yEnd, double zEnd) {
     this->xEnd = xEnd;
     this->yEnd = yEnd;
     this->zEnd = zEnd;
@@ -31,15 +31,15 @@ double Vector::GetYEnd() const { return yEnd; }
 double Vector::GetZEnd() const { return zEnd; }
 
 void Vector::Input() {
-    std::cout << "Ââåäèòå êîîðäèíàòû íà÷àëà âåêòîðà (x y z): ";
+    std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ñ‹ Ð½Ð°Ñ‡Ð°Ð»Ð° Ð²ÐµÐºÑ‚Ð¾Ñ€Ð° (x y z): ";
     std::cin >> xBeg >> yBeg >> zBeg;
-    std::cout << "Ââåäèòå êîîðäèíàòû êîíöà âåêòîðà (x y z): ";
+    std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ñ‹ ÐºÐ¾Ð½Ñ†Ð° Ð²ÐµÐºÑ‚Ð¾Ñ€Ð° (x y z): ";
     std::cin >> xEnd >> yEnd >> zEnd;
 }
 
 void Vector::DisplayMessege() const {
-    std::cout << "Êîîðäèíàòû íà÷àëà âåêòîðà: (" << xBeg << ", " << yBeg << ", " << zBeg << ")\n";
-    std::cout << "Êîîðäèíàòû êîíöà âåêòîðà:  (" << xEnd << ", " << yEnd << ", " << zEnd << ")\n";
+    std::cout << "ÐšÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ñ‹ Ð½Ð°Ñ‡Ð°Ð»Ð° Ð²ÐµÐºÑ‚Ð¾Ñ€Ð°: (" << xBeg << ", " << yBeg << ", " << zBeg << ")\n";
+    std::cout << "ÐšÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ñ‹ ÐºÐ¾Ð½Ñ†Ð° Ð²ÐµÐºÑ‚Ð¾Ñ€Ð°:  (" << xEnd << ", " << yEnd << ", " << zEnd << ")\n";
 }
 
 double Vector::LengthCalculate() const {
@@ -118,12 +118,12 @@ Vector Vector::operator*=(double number) {
 }
 
 Vector Vector::operator/(double number) const {
-    if (number == 0) throw runtime_error("Îøèáêà! Äåëàåíèå íà íîëü");
+    if (number == 0) throw runtime_error("ÐžÑˆÐ¸Ð±ÐºÐ°! Ð”ÐµÐ»Ð°ÐµÐ½Ð¸Ðµ Ð½Ð° Ð½Ð¾Ð»ÑŒ");
     return Vector(xBeg, yBeg, zBeg, xBeg + (xEnd - xBeg) / number, yBeg + (yEnd - yBeg) / number, zBeg + (zEnd - zBeg) / number);
 }
 
 Vector Vector::operator/=(double number) {
-    if (number == 0) throw runtime_error("Îøèáêà! Äåëàåíèå íà íîëü");
+    if (number == 0) throw runtime_error("ÐžÑˆÐ¸Ð±ÐºÐ°! Ð”ÐµÐ»Ð°ÐµÐ½Ð¸Ðµ Ð½Ð° Ð½Ð¾Ð»ÑŒ");
     xEnd = xBeg + (xEnd - xBeg) / number;
     yEnd = yBeg + (yEnd - yBeg) / number;
     zEnd = zBeg + (zEnd - zBeg) / number;
@@ -134,7 +134,7 @@ double Vector::operator^(const Vector& other) const {
     double lenght1 = this->LengthCalculate();
     double lenght2 = other.LengthCalculate();
 
-    if (lenght1 == 0 || lenght2 == 0) throw runtime_error("Îøèáêà! Äåëàåíèå íà íîëü");
+    if (lenght1 == 0 || lenght2 == 0) throw runtime_error("ÐžÑˆÐ¸Ð±ÐºÐ°! Ð”ÐµÐ»Ð°ÐµÐ½Ð¸Ðµ Ð½Ð° Ð½Ð¾Ð»ÑŒ");
 
     double cos = (*this * other) / (lenght1 * lenght2);
     return cos;
@@ -165,7 +165,7 @@ bool Vector::operator>=(const Vector& other) const {
 }
 
 ostream& operator<<(ostream& out, const Vector& vec) {
-    out << "Íà÷àëî: (" << vec.xBeg << ", " << vec.yBeg << ", " << vec.zBeg << "), " << "Êîíåö: (" << vec.xEnd << ", " << vec.yEnd << ", " << vec.zEnd << ")";
+    out << "ÐÐ°Ñ‡Ð°Ð»Ð¾: (" << vec.xBeg << ", " << vec.yBeg << ", " << vec.zBeg << "), " << "ÐšÐ¾Ð½ÐµÑ†: (" << vec.xEnd << ", " << vec.yEnd << ", " << vec.zEnd << ")";
     return out;
 }
 

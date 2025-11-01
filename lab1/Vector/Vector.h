@@ -10,8 +10,8 @@ public:
     Vector(double xBegValue, double yBegValue, double zBegValue, double xEndValue, double yEndValue, double zEndValue);
     Vector(const Vector& other);
 
-    void Set—oordinatesBeg(double xBeg, double yBeg, double zBeg);
-    void Set—oordinatesEnd(double xEnd, double yEnd, double zEnd);
+    void SetCoordinatesBeg(double xBeg, double yBeg, double zBeg);
+    void SetCoordinatesEnd(double xEnd, double yEnd, double zEnd);
     double GetXBeg() const;
     double GetYBeg() const;
     double GetZBeg() const;

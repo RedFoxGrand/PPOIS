@@ -41,7 +41,7 @@ TEST_F(VectorTest, CopyConstructor) {
 
 TEST_F(VectorTest, SetCoordinatesBeg) {
     Vector vec;
-    vec.Set—oordinatesBeg(1.5, 2.5, 3.5);
+    vec.Set√ëoordinatesBeg(1.5, 2.5, 3.5);
 
     EXPECT_DOUBLE_EQ(vec.GetXBeg(), 1.5);
     EXPECT_DOUBLE_EQ(vec.GetYBeg(), 2.5);
@@ -50,7 +50,7 @@ TEST_F(VectorTest, SetCoordinatesBeg) {
 
 TEST_F(VectorTest, SetCoordinatesEnd) {
     Vector vec;
-    vec.Set—oordinatesEnd(4.5, 5.5, 6.5);
+    vec.Set√ëoordinatesEnd(4.5, 5.5, 6.5);
 
     EXPECT_DOUBLE_EQ(vec.GetXEnd(), 4.5);
     EXPECT_DOUBLE_EQ(vec.GetYEnd(), 5.5);
