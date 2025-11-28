@@ -1,5 +1,4 @@
 Классы:
-
 1. Account (полей: 6, методов: 2) -> Passenger, PaymentCard
 2. Aircraft (полей: 5, методов: 3) -> AircraftModel, Schedule
 3. AircraftMaintenanceSystem (полей: 2, методов: 3) -> Aircraft, MaintenanceLog
