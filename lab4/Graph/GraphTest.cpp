@@ -35,7 +35,7 @@ protected:
     EdgeKey e1, e2;
 };
 
-// ¡‡ÁÓ‚˚Â ÚÂÒÚ˚
+// √Å√†√ß√Æ√¢√ª√• √≤√•√±√≤√ª
 TEST_F(GraphTest, BasicOperations) {
     EXPECT_EQ(graph.vertices_count(), 3);
     EXPECT_EQ(graph.edges_count(), 2);
@@ -151,18 +151,16 @@ TEST_F(GraphTest, ConstVertexIterators) {
     const auto& const_graph = graph;
     std::vector<std::string> values;
 
-    for (auto it = const_graph.vertices_begin(); it != const_graph.vertices_end(); ++it) {
+    for (auto it = const_graph.vertices_begin(); it != const_graph.vertices_end(); it++)
         values.push_back(*it);
-    }
 
     EXPECT_EQ(values.size(), 3);
 }
 
 TEST_F(GraphTest, VertexIteratorKeys) {
     std::set<VertexKey> keys;
-    for (auto it = graph.vertices_begin(); it != graph.vertices_end(); ++it) {
+    for (auto it = graph.vertices_begin(); it != graph.vertices_end(); it++)
         keys.insert(it.key());
-    }
 
     EXPECT_EQ(keys.size(), 3);
     EXPECT_TRUE(keys.find(v1) != keys.end());
@@ -172,9 +170,8 @@ TEST_F(GraphTest, VertexIteratorKeys) {
 
 TEST_F(GraphTest, EdgeIterators) {
     std::vector<std::pair<VertexKey, VertexKey>> edges;
-    for (auto it = graph.edges_begin(); it != graph.edges_end(); ++it) {
+    for (auto it = graph.edges_begin(); it != graph.edges_end(); it++)
         edges.push_back(*it);
-    }
 
     EXPECT_EQ(edges.size(), 2);
     EXPECT_EQ(std::find(edges.begin(), edges.end(), std::make_pair(v1, v2)) != edges.end(), true);
@@ -183,51 +180,45 @@ TEST_F(GraphTest, EdgeIterators) {
 
 TEST_F(GraphTest, IncidentEdgeIterators) {
     std::vector<EdgeKey> out_edges_v1;
-    for (auto it = graph.out_edges_begin(v1); it != graph.out_edges_end(v1); ++it) {
+    for (auto it = graph.out_edges_begin(v1); it != graph.out_edges_end(v1); it++)
         out_edges_v1.push_back(*it);
-    }
 
     EXPECT_EQ(out_edges_v1.size(), 1);
     EXPECT_EQ(out_edges_v1[0], e1);
 
     std::vector<EdgeKey> out_edges_v3;
-    for (auto it = graph.out_edges_begin(v3); it != graph.out_edges_end(v3); ++it) {
+    for (auto it = graph.out_edges_begin(v3); it != graph.out_edges_end(v3); it++)
         out_edges_v3.push_back(*it);
-    }
 
     EXPECT_TRUE(out_edges_v3.empty());
 }
 
 TEST_F(GraphTest, InEdgeIterators) {
     std::vector<EdgeKey> in_edges_v2;
-    for (auto it = graph.in_edges_begin(v2); it != graph.in_edges_end(v2); ++it) {
+    for (auto it = graph.in_edges_begin(v2); it != graph.in_edges_end(v2); it++)
         in_edges_v2.push_back(*it);
-    }
 
     EXPECT_EQ(in_edges_v2.size(), 1);
     EXPECT_EQ(in_edges_v2[0], e1);
 
     std::vector<EdgeKey> in_edges_v1;
-    for (auto it = graph.in_edges_begin(v1); it != graph.in_edges_end(v1); ++it) {
+    for (auto it = graph.in_edges_begin(v1); it != graph.in_edges_end(v1); it++)
         in_edges_v1.push_back(*it);
-    }
 
     EXPECT_TRUE(in_edges_v1.empty());
 }
 
 TEST_F(GraphTest, AdjacentVertexIterators) {
     std::vector<VertexKey> adjacent_v1;
-    for (auto it = graph.adjacent_begin(v1); it != graph.adjacent_end(v1); ++it) {
+    for (auto it = graph.adjacent_begin(v1); it != graph.adjacent_end(v1); it++)
         adjacent_v1.push_back(*it);
-    }
 
     EXPECT_EQ(adjacent_v1.size(), 1);
     EXPECT_EQ(adjacent_v1[0], v2);
 
     std::vector<VertexKey> adjacent_v3;
-    for (auto it = graph.adjacent_begin(v3); it != graph.adjacent_end(v3); ++it) {
+    for (auto it = graph.adjacent_begin(v3); it != graph.adjacent_end(v3); it++)
         adjacent_v3.push_back(*it);
-    }
 
     EXPECT_TRUE(adjacent_v3.empty());
 }
