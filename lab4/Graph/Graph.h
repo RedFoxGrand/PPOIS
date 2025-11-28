@@ -25,10 +25,7 @@ template<typename T, typename Props> class ConstReverseIncidentEdgeIterator;
 template<typename T, typename Props> class ConstReverseAdjacentVertexIterator;
 template<typename T, typename Props> class ConstReverseInEdgeIterator;
 
-
 struct DefaultProps {};
-
-template <typename T, typename Props = DefaultProps> class Graph;
 
 using VertexKey = std::size_t;
 using EdgeKey = std::size_t;
@@ -275,7 +272,7 @@ public:
     }
 
     void remove_vertex(VertexKey vertex_key) {
-        if (!has_vertex(vertex_key)) throw std::out_of_range("Ошибка удаления вершины");
+        if (!has_vertex(vertex_key)) throw std::out_of_range("ГЋГёГЁГЎГЄГ  ГіГ¤Г Г«ГҐГ­ГЁГї ГўГҐГ°ГёГЁГ­Г»");
 
         EdgeKey out_edge = vertices_[vertex_key_map_[vertex_key]].first_out_edge_;
         while (out_edge != EdgeKey(-1)) {
@@ -299,7 +296,7 @@ public:
     }
 
     EdgeKey add_edge(VertexKey from, VertexKey to, const Props& props = Props{}) {
-        if (!has_vertex(from) || !has_vertex(to)) throw std::out_of_range("Ошибка добавления ребра");
+        if (!has_vertex(from) || !has_vertex(to)) throw std::out_of_range("ГЋГёГЁГЎГЄГ  Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї Г°ГҐГЎГ°Г ");
 
         EdgeKey key = get_free_edge();
 
@@ -319,7 +316,7 @@ public:
     }
 
     void remove_edge(EdgeKey edge_key) {
-        if (!has_edge(edge_key)) throw std::out_of_range("Ошибка удаления ребра");
+        if (!has_edge(edge_key)) throw std::out_of_range("ГЋГёГЁГЎГЄГ  ГіГ¤Г Г«ГҐГ­ГЁГї Г°ГҐГЎГ°Г ");
 
         size_t index = edge_key_map_[edge_key];
         Edge& edge = edges_[index];
@@ -384,7 +381,7 @@ public:
     }
 
     size_type out_degree(VertexKey vertex_key) const {
-        if (!has_vertex(vertex_key)) throw std::out_of_range("Вершина некорректна");
+        if (!has_vertex(vertex_key)) throw std::out_of_range("Г‚ГҐГ°ГёГЁГ­Г  Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г ");
 
         size_t count = 0;
         EdgeKey current = vertices_[vertex_key_map_.at(vertex_key)].first_out_edge_;
@@ -396,7 +393,7 @@ public:
     }
 
     size_type in_degree(VertexKey vertex_key) const {
-        if (!has_vertex(vertex_key)) throw std::out_of_range("Вершина некорректна");
+        if (!has_vertex(vertex_key)) throw std::out_of_range("Г‚ГҐГ°ГёГЁГ­Г  Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г ");
 
         size_t count = 0;
         EdgeKey current = vertices_[vertex_key_map_.at(vertex_key)].first_in_edge_;
@@ -408,50 +405,50 @@ public:
     }
 
     reference vertex_value(VertexKey vertex_key) {
-        if (!has_vertex(vertex_key)) throw std::out_of_range("Вершина некорректна");
+        if (!has_vertex(vertex_key)) throw std::out_of_range("Г‚ГҐГ°ГёГЁГ­Г  Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г ");
         size_t index = vertex_key_map_.at(vertex_key);
         return vertices_[index].value_;
     }
 
     const_reference vertex_value(VertexKey vertex_key) const {
-        if (!has_vertex(vertex_key)) throw std::out_of_range("Вершина некорректна");
+        if (!has_vertex(vertex_key)) throw std::out_of_range("Г‚ГҐГ°ГёГЁГ­Г  Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г ");
         size_t index = vertex_key_map_.at(vertex_key);
         return vertices_[index].value_;
     }
 
     Props& vertex_props(VertexKey vertex_key) {
-        if (!has_vertex(vertex_key)) throw std::out_of_range("Вершина некорректна");
+        if (!has_vertex(vertex_key)) throw std::out_of_range("Г‚ГҐГ°ГёГЁГ­Г  Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г ");
         size_t index = vertex_key_map_.at(vertex_key);
         return vertices_[index].props_;
     }
 
     const Props& vertex_props(VertexKey vertex_key) const {
-        if (!has_vertex(vertex_key)) throw std::out_of_range("Вершина некорректна");
+        if (!has_vertex(vertex_key)) throw std::out_of_range("Г‚ГҐГ°ГёГЁГ­Г  Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г ");
         size_t index = vertex_key_map_.at(vertex_key);
         return vertices_[index].props_;
     }
 
     std::pair<VertexKey, VertexKey> edge_endpoints(EdgeKey edge_key) const {
-        if (!has_edge(edge_key)) throw std::out_of_range("Ребро некорректно");
+        if (!has_edge(edge_key)) throw std::out_of_range("ГђГҐГЎГ°Г® Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г®");
         size_t index = edge_key_map_.at(edge_key);
         const Edge& edge = edges_[index];
         return { edge.from_, edge.to_ };
     }
 
     Props& edge_props(EdgeKey edge_key) {
-        if (!has_edge(edge_key)) throw std::out_of_range("Ребро некорректно");
+        if (!has_edge(edge_key)) throw std::out_of_range("ГђГҐГЎГ°Г® Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г®");
         size_t index = edge_key_map_.at(edge_key);
         return edges_[index].props_;
     }
 
     const Props& edge_props(EdgeKey edge_key) const {
-        if (!has_edge(edge_key)) throw std::out_of_range("Ребро некорректно");
+        if (!has_edge(edge_key)) throw std::out_of_range("ГђГҐГЎГ°Г® Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г®");
         size_t index = edge_key_map_.at(edge_key);
         return edges_[index].props_;
     }
 
     EdgeKey find_edge(VertexKey from, VertexKey to) const {
-        if (!has_vertex(from) || !has_vertex(to)) throw std::out_of_range("Одна или обе вершины не найдены");
+        if (!has_vertex(from) || !has_vertex(to)) throw std::out_of_range("ГЋГ¤Г­Г  ГЁГ«ГЁ Г®ГЎГҐ ГўГҐГ°ГёГЁГ­Г» Г­ГҐ Г­Г Г©Г¤ГҐГ­Г»");
 
         EdgeKey current = vertices_[vertex_key_map_.at(from)].first_out_edge_;
         while (current != EdgeKey(-1)) {
@@ -461,7 +458,7 @@ public:
             }
             current = edges_[edge_key_map_.at(current)].next_out_;
         }
-        throw std::out_of_range("Ребро не найдено");
+        throw std::out_of_range("ГђГҐГЎГ°Г® Г­ГҐ Г­Г Г©Г¤ГҐГ­Г®");
     }
 
     VertexIterator vertices_begin() {
@@ -481,7 +478,7 @@ public:
     }
 
     IncidentEdgeIterator out_edges_begin(VertexKey v) {
-        if (!has_vertex(v)) throw std::out_of_range("Вершина некорректна");
+        if (!has_vertex(v)) throw std::out_of_range("Г‚ГҐГ°ГёГЁГ­Г  Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г ");
         size_t index = vertex_key_map_.at(v);
         return IncidentEdgeIterator(this, vertices_[index].first_out_edge_);
     }
@@ -491,7 +488,7 @@ public:
     }
 
     InEdgeIterator in_edges_begin(VertexKey v) {
-        if (!has_vertex(v)) throw std::out_of_range("Вершина некорректна");
+        if (!has_vertex(v)) throw std::out_of_range("Г‚ГҐГ°ГёГЁГ­Г  Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г ");
         size_t index = vertex_key_map_.at(v);
         return InEdgeIterator(this, vertices_[index].first_in_edge_);
     }
@@ -501,7 +498,7 @@ public:
     }
 
     AdjacentVertexIterator adjacent_begin(VertexKey v) {
-        if (!has_vertex(v)) throw std::out_of_range("Вершина некорректна");
+        if (!has_vertex(v)) throw std::out_of_range("Г‚ГҐГ°ГёГЁГ­Г  Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г ");
         size_t index = vertex_key_map_.at(v);
         return AdjacentVertexIterator(this, vertices_[index].first_out_edge_);
     }
@@ -567,7 +564,7 @@ public:
     }
 
     ConstIncidentEdgeIterator out_edges_begin(VertexKey v) const {
-        if (!has_vertex(v)) throw std::out_of_range("Вершина некорректна");
+        if (!has_vertex(v)) throw std::out_of_range("Г‚ГҐГ°ГёГЁГ­Г  Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г ");
         size_t index = vertex_key_map_.at(v);
         return ConstIncidentEdgeIterator(this, vertices_[index].first_out_edge_);
     }
@@ -577,7 +574,7 @@ public:
     }
 
     ConstInEdgeIterator in_edges_begin(VertexKey v) const {
-        if (!has_vertex(v)) throw std::out_of_range("Вершина некорректна");
+        if (!has_vertex(v)) throw std::out_of_range("Г‚ГҐГ°ГёГЁГ­Г  Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г ");
         size_t index = vertex_key_map_.at(v);
         return ConstInEdgeIterator(this, vertices_[index].first_in_edge_);
     }
@@ -587,7 +584,7 @@ public:
     }
 
     ConstAdjacentVertexIterator adjacent_begin(VertexKey v) const {
-        if (!has_vertex(v)) throw std::out_of_range("Вершина некорректна");
+        if (!has_vertex(v)) throw std::out_of_range("Г‚ГҐГ°ГёГЁГ­Г  Г­ГҐГЄГ®Г°Г°ГҐГЄГІГ­Г ");
         size_t index = vertex_key_map_.at(v);
         return ConstAdjacentVertexIterator(this, vertices_[index].first_out_edge_);
     }
@@ -681,12 +678,12 @@ public:
     }
 
     friend std::ostream& operator<<(std::ostream& out, const Graph& graph) {
-        out << "Вершины (" << graph.vertices_count() << "):\n";
+        out << "Г‚ГҐГ°ГёГЁГ­Г» (" << graph.vertices_count() << "):\n";
         for (auto vit = graph.vertices_begin(); vit != graph.vertices_end(); ++vit) {
             out << "  v" << vit.key() << ": " << *vit << "\n";
         }
 
-        out << "Рёбра (" << graph.edges_count() << "):\n";
+        out << "ГђВёГЎГ°Г  (" << graph.edges_count() << "):\n";
         for (auto eit = graph.edges_begin(); eit != graph.edges_end(); ++eit) {
             auto endpoints = graph.edge_endpoints(eit.key());
             out << "  e" << eit.key() << ": v" << endpoints.first << " -> v" << endpoints.second << "\n";
