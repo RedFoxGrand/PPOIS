@@ -1,6 +1,5 @@
 Классы:
 
-
 1. Admin (полей: 4, методов: 2) -> User, Permission, Ban
 2. Album (полей: 5, методов: 3) -> User, Photo, Video, Audio
 3. Analytics (полей: 2, методов: 3) ->
