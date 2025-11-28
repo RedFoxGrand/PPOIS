@@ -18,8 +18,6 @@ public:
     double GetXEnd() const;
     double GetYEnd() const;
     double GetZEnd() const;
-    void Input();
-    void DisplayMessege() const;
     double LengthCalculate() const;
 
     Vector& operator=(const Vector& other);
@@ -42,8 +40,8 @@ public:
     bool operator>(const Vector& other) const;
     bool operator>=(const Vector& other) const;
 
-    friend ostream& operator<<(std::ostream& out, const Vector& vec);
-    friend istream& operator>>(std::istream& in, Vector& vec);
+    friend ostream& operator<<(ostream& out, const Vector& vec);
+    friend istream& operator>>(istream& in, Vector& vec);
 
 private:
     double xBeg, yBeg, zBeg, xEnd, yEnd, zEnd;

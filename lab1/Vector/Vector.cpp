@@ -23,23 +23,23 @@ void Vector::SetCoordinatesEnd(double xEnd, double yEnd, double zEnd) {
     this->zEnd = zEnd;
 }
 
-double Vector::GetXBeg() const { return xBeg; }
-double Vector::GetYBeg() const { return yBeg; }
-double Vector::GetZBeg() const { return zBeg; }
-double Vector::GetXEnd() const { return xEnd; }
-double Vector::GetYEnd() const { return yEnd; }
-double Vector::GetZEnd() const { return zEnd; }
-
-void Vector::Input() {
-    std::cout << "Введите координаты начала вектора (x y z): ";
-    std::cin >> xBeg >> yBeg >> zBeg;
-    std::cout << "Введите координаты конца вектора (x y z): ";
-    std::cin >> xEnd >> yEnd >> zEnd;
+double Vector::GetXBeg() const { 
+    return xBeg; 
 }
-
-void Vector::DisplayMessege() const {
-    std::cout << "Координаты начала вектора: (" << xBeg << ", " << yBeg << ", " << zBeg << ")\n";
-    std::cout << "Координаты конца вектора:  (" << xEnd << ", " << yEnd << ", " << zEnd << ")\n";
+double Vector::GetYBeg() const { 
+    return yBeg; 
+}
+double Vector::GetZBeg() const { 
+    return zBeg; 
+}
+double Vector::GetXEnd() const { 
+    return xEnd; 
+}
+double Vector::GetYEnd() const { 
+    return yEnd; 
+}
+double Vector::GetZEnd() const { 
+    return zEnd; 
 }
 
 double Vector::LengthCalculate() const {
